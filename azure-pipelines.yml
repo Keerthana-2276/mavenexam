@@ -1,13 +1,17 @@
 trigger:
-- master
+- main
 
 pool:
-  vmImage: 'ubuntu-latest'   # change THIS
+  name: Test_Agent
 
 steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean install'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'Path'
+    jdkUserInputPath: 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot'
+    jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'compile test'
