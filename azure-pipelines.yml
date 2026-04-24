@@ -1,8 +1,8 @@
 trigger:
-- master   # because your repo uses master
+- master
 
 pool:
-  name: Default   # or your agent pool name (check in Azure)
+  vmImage: 'ubuntu-latest'   # change THIS
 
 steps:
 - task: Maven@4
