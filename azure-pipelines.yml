@@ -1,0 +1,13 @@
+trigger:
+- master   # because your repo uses master
+
+pool:
+  name: Default   # or your agent pool name (check in Azure)
+
+steps:
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'clean install'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
