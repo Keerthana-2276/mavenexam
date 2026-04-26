@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  name: Test_Agent1
+  name: Test_Agent2
 
 steps:
 - task: Maven@4
